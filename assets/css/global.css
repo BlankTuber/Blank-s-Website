@@ -1,0 +1,182 @@
+:root {
+    color-scheme: dark;
+    font-family: "Playpen Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+    /* Favorites: loud, so used for small decoration only */
+    --aquamarine: #00ffbb;
+    --magenta: #ff00bb;
+
+    /* Everyday variations */
+    --teal: #3fb89a;
+    --teal-dark: #123b35;
+    --plum: #b8559a;
+    --plum-dark: #3a1f34;
+
+    --bg: #0f1214;
+    --surface: #181d20;
+    --text: #e4e9e8;
+    --border: #2b363a;
+
+    /* Roles: dark mode is teal-led, light mode flips to plum-led */
+    --accent: var(--teal);
+    --accent-2: var(--plum);
+    --tint-header: var(--teal-dark);
+    --tint-footer: var(--plum-dark);
+    --deco: var(--aquamarine);
+
+    /* Bevel edges on main */
+    --bevel-light: rgba(255, 255, 255, 0.06);
+    --bevel-dark: rgba(0, 0, 0, 0.4);
+
+    /* Fluid spacing: scales with the screen, no breakpoints needed */
+    --space-sm: clamp(8px, 2vw, 12px);
+    --space-md: clamp(12px, 3vw, 24px);
+    --space-lg: clamp(16px, 4vw, 48px);
+    --page-width: 85vw;
+}
+
+/* Light mode: softer background, magenta-led instead of aquamarine-led */
+@media (prefers-color-scheme: light) {
+    :root {
+        color-scheme: light;
+
+        --teal: #1b6f5b;
+        --plum: #8a2f73;
+
+        --bg: #d5dbd9;
+        --surface: #e6eae8;
+        --text: #1f2a2c;
+        --border: #aebbb8;
+
+        --accent: var(--plum);
+        --accent-2: var(--teal);
+        --tint-header: #e0bfd5;
+        --tint-footer: #bddcd2;
+        --deco: var(--magenta);
+
+        --bevel-light: rgba(255, 255, 255, 0.5);
+        --bevel-dark: rgba(0, 0, 0, 0.12);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* 14px on phones, growing gently up to 16px on large screens */
+    font-size: clamp(14px, 13px + 0.25vw, 16px);
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh; /* accounts for mobile browser toolbars */
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg);
+    background-image: radial-gradient(var(--border) 1px, transparent 1px);
+    background-size: 16px 16px;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+@keyframes hop {
+    0% {
+        background-position: 0 0;
+    }
+    20% {
+        background-position: 8px 0;
+    }
+    25% {
+        background-position: 16px 0;
+    }
+    45% {
+        background-position: 8px 8px;
+    }
+    50% {
+        background-position: 8px 16px;
+    }
+    70% {
+        background-position: 0 16px;
+    }
+    75% {
+        background-position: 0 8px;
+    }
+    95% {
+        background-position: 16px 8px;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+body {
+    animation: hop 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body {
+        animation: none;
+    }
+}
+
+a {
+    color: var(--accent);
+}
+
+a:hover {
+    color: var(--accent-2);
+}
+
+header {
+    min-height: 5rem;
+    padding: var(--space-sm);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(var(--tint-header), var(--bg));
+    border-bottom: 2px solid var(--border);
+    box-shadow: 0 2px 0 var(--deco);
+}
+
+header h1 {
+    color: var(--accent);
+    text-align: center;
+    font-size: clamp(1.5rem, 6vw, 2.25rem);
+}
+
+main {
+    flex: 1;
+    width: min(100% - var(--space-lg), var(--page-width));
+    margin-block: var(--space-md);
+    margin-inline: auto;
+    padding: var(--space-md);
+    overflow-wrap: anywhere;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent-2);
+    box-shadow:
+        inset 1px 1px 0 var(--bevel-light),
+        inset -1px -1px 0 var(--bevel-dark);
+}
+
+footer {
+    min-height: 3.5rem;
+    padding: var(--space-sm);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(var(--bg), var(--tint-footer));
+    border-top: 2px solid var(--border);
+}
+
+footer nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm) var(--space-md);
+}
