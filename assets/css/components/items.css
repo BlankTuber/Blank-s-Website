@@ -1,0 +1,12 @@
+/* A grid of boxes, used for the project list on the Workbench.
+
+   <div class="items">
+       <article class="box">...</article>
+       <article class="box">...</article>
+   </div> */
+
+.items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 2rem var(--space-md);
+}

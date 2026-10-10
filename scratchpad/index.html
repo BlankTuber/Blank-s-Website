@@ -6,7 +6,7 @@
         <title>Scratchpad | Blank's Workshop</title>
         <meta
             name="description"
-            content="The Scratchpad: devlogs and notes from Blank's Workshop."
+            content="The Scratchpad: Blank's blog. Devlogs and notes from the workshop."
         />
         <link rel="canonical" href="https://blanktuber.dev/scratchpad/" />
 
@@ -29,7 +29,7 @@
         <meta property="og:title" content="Scratchpad | Blank's Workshop" />
         <meta
             property="og:description"
-            content="The Scratchpad: devlogs and notes from Blank's Workshop."
+            content="The Scratchpad: Blank's blog. Devlogs and notes from the workshop."
         />
         <meta property="og:url" content="https://blanktuber.dev/scratchpad/" />
         <meta
@@ -57,6 +57,10 @@
             href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap"
         />
         <link rel="stylesheet" href="/assets/css/global.css" />
+        <link rel="stylesheet" href="/assets/css/layout.css" />
+        <link rel="stylesheet" href="/assets/css/components/box.css" />
+        <link rel="stylesheet" href="/assets/css/components/links.css" />
+        <link rel="stylesheet" href="/assets/css/components/post.css" />
         <link rel="me" href="https://github.com/BlankTuber" />
     </head>
 
@@ -64,16 +68,52 @@
         <header>
             <h1>Blank's Workshop</h1>
         </header>
-        <main>
-            <h2>Scratchpad</h2>
-            <p>Nothing scribbled yet.</p>
-        </main>
-        <footer>
-            <nav>
-                <a href="/workbench/">Workbench</a>
-                <a href="/">Front Door</a>
-                <a href="/scratchpad/" aria-current="page">Scratchpad</a>
+        <div class="layout">
+            <nav aria-label="Main">
+                <div class="box compact">
+                    <p class="tag" aria-hidden="true">Navigate</p>
+                    <ul class="links">
+                        <li><a href="/">Front Door</a></li>
+                        <li><a href="/workbench/">Workbench</a></li>
+                        <li>
+                            <a href="/scratchpad/" aria-current="page"
+                                >Scratchpad</a
+                            >
+                        </li>
+                    </ul>
+                </div>
             </nav>
-        </footer>
+            <main>
+                <section class="box">
+                    <h2 class="tag">Scratchpad</h2>
+                    <p>Nothing scribbled yet.</p>
+                </section>
+
+                <!-- Post template: paste new posts above this comment, newest first.
+                     Use a dated id; it makes the post linkable as /scratchpad/#2026-10-10-short-name
+                <article class="box post" id="2026-10-10-short-name">
+                    <h2 class="tag"><a href="#2026-10-10-short-name">Post title</a></h2>
+                    <p class="meta"><time datetime="2026-10-10">10 October 2026</time></p>
+                    <p>First paragraph.</p>
+                    <p>Second paragraph.</p>
+                </article>
+                -->
+            </main>
+            <aside>
+                <section class="box compact">
+                    <h2 class="tag">Elsewhere</h2>
+                    <ul class="links">
+                        <li>
+                            <a href="https://github.com/BlankTuber">GitHub</a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/@BlankTuber"
+                                >YouTube</a
+                            >
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+        </div>
     </body>
 </html>

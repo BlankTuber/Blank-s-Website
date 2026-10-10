@@ -1,3 +1,3 @@
-# BlankTuber.dev
+# BlankTuber.dev - Blank's Workshop
 
-Static project portfolio website.
+A project portfolio website

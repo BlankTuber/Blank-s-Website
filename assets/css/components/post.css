@@ -1,0 +1,18 @@
+/* Blog posts on the Scratchpad: stacked newest first, each linkable by its id.
+
+   <article class="box post" id="2026-10-10-short-name">
+       <h2 class="tag"><a href="#2026-10-10-short-name">Title</a></h2>
+       <p class="meta"><time datetime="2026-10-10">10 October 2026</time></p>
+       <p>...</p>
+   </article> */
+
+.post:target {
+    outline: 2px solid var(--deco);
+    outline-offset: 4px;
+}
+
+.meta {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: color-mix(in srgb, var(--text) 70%, transparent);
+}

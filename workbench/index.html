@@ -6,7 +6,7 @@
         <title>Workbench | Blank's Workshop</title>
         <meta
             name="description"
-            content="The Workbench: projects from Blank's Workshop."
+            content="The Workbench: projects from Blank's Workshop, from websites and Discord bots to native apps and embedded work."
         />
         <link rel="canonical" href="https://blanktuber.dev/workbench/" />
 
@@ -29,7 +29,7 @@
         <meta property="og:title" content="Workbench | Blank's Workshop" />
         <meta
             property="og:description"
-            content="The Workbench: projects from Blank's Workshop."
+            content="The Workbench: projects from Blank's Workshop, from websites and Discord bots to native apps and embedded work."
         />
         <meta property="og:url" content="https://blanktuber.dev/workbench/" />
         <meta
@@ -57,6 +57,10 @@
             href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap"
         />
         <link rel="stylesheet" href="/assets/css/global.css" />
+        <link rel="stylesheet" href="/assets/css/layout.css" />
+        <link rel="stylesheet" href="/assets/css/components/box.css" />
+        <link rel="stylesheet" href="/assets/css/components/links.css" />
+        <link rel="stylesheet" href="/assets/css/components/items.css" />
         <link rel="me" href="https://github.com/BlankTuber" />
     </head>
 
@@ -64,16 +68,51 @@
         <header>
             <h1>Blank's Workshop</h1>
         </header>
-        <main>
-            <h2>Workbench</h2>
-            <p>Nothing on the bench yet.</p>
-        </main>
-        <footer>
-            <nav>
-                <a href="/workbench/" aria-current="page">Workbench</a>
-                <a href="/">Front Door</a>
-                <a href="/scratchpad/">Scratchpad</a>
+        <div class="layout">
+            <nav aria-label="Main">
+                <div class="box compact">
+                    <p class="tag" aria-hidden="true">Navigate</p>
+                    <ul class="links">
+                        <li><a href="/">Front Door</a></li>
+                        <li>
+                            <a href="/workbench/" aria-current="page"
+                                >Workbench</a
+                            >
+                        </li>
+                        <li><a href="/scratchpad/">Scratchpad</a></li>
+                    </ul>
+                </div>
             </nav>
-        </footer>
+            <main>
+                <section class="box">
+                    <h2 class="tag">Workbench</h2>
+                    <p>Nothing on the bench yet.</p>
+                </section>
+
+                <!-- Project template: wrap boxes in <div class="items"> once there are several.
+                <div class="items">
+                    <article class="box">
+                        <h2 class="tag"><a href="/workbench/project-name/">Project name</a></h2>
+                        <p>One or two lines about what it is.</p>
+                    </article>
+                </div>
+                -->
+            </main>
+            <aside>
+                <section class="box compact">
+                    <h2 class="tag">Elsewhere</h2>
+                    <ul class="links">
+                        <li>
+                            <a href="https://github.com/BlankTuber">GitHub</a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/@BlankTuber"
+                                >YouTube</a
+                            >
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+        </div>
     </body>
 </html>

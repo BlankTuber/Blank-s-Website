@@ -1,0 +1,32 @@
+/* A list of links with a little arrow. Used for the nav and "Elsewhere".
+
+   <ul class="links">
+       <li><a href="/">Front Door</a></li>
+       <li><a href="/workbench/" aria-current="page">Workbench</a></li>
+   </ul> */
+
+.links {
+    list-style: none;
+}
+
+.links a {
+    display: block;
+    padding: 0.1rem 0.5rem;
+    text-decoration: none;
+}
+
+.links a::before {
+    content: "\25B8\00a0";
+    color: var(--deco);
+}
+
+.links a:hover,
+.links a[aria-current="page"] {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+.links a:hover::before,
+.links a[aria-current="page"]::before {
+    color: var(--bg);
+}

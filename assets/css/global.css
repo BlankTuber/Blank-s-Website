@@ -1,10 +1,12 @@
+/* Applies to every page on the site. */
+
 :root {
     color-scheme: dark;
     font-family: "Playpen Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
 
-    /* Favorites: loud, so used for small decoration only */
+    /* Favorites */
     --aquamarine: #00ffbb;
     --magenta: #ff00bb;
 
@@ -19,15 +21,13 @@
     --text: #e4e9e8;
     --border: #2b363a;
 
-    /* Roles: dark mode is teal-led, light mode flips to plum-led */
+    /* Roles */
     --accent: var(--teal);
     --accent-2: var(--plum);
     --tint-header: var(--teal-dark);
-    --tint-footer: var(--plum-dark);
     --deco: var(--aquamarine);
 
-    /* Background art. Pick one by pointing --bg-art at --bg-glow or --bg-stars.
-       Both are static and drawn once, so they cost nothing while idle. */
+    /* Background art. Pick one by pointing --bg-art at --bg-glow or --bg-stars. */
     --star: rgba(255, 255, 255, 0.55);
     --bg-glow:
         radial-gradient(
@@ -50,20 +50,20 @@
         radial-gradient(1px 1px at 59px 221px, var(--star), transparent) 0 0 /
             349px 349px,
         var(--bg-glow);
-    --bg-art: var(--bg-glow);
+    --bg-art: var(--bg-stars);
 
-    /* Bevel edges on main */
+    /* Bevels and hard shadows */
     --bevel-light: rgba(255, 255, 255, 0.06);
     --bevel-dark: rgba(0, 0, 0, 0.4);
+    --hard-shadow: rgba(0, 0, 0, 0.5);
 
-    /* Fluid spacing: scales with the screen, no breakpoints needed */
+    /* Fluid spacing */
     --space-sm: clamp(8px, 2vw, 12px);
     --space-md: clamp(12px, 3vw, 24px);
     --space-lg: clamp(16px, 4vw, 48px);
-    --page-width: min(85vw, 70rem);
 }
 
-/* Light mode: softer background, magenta-led instead of aquamarine-led */
+/* Light mode */
 @media (prefers-color-scheme: light) {
     :root {
         color-scheme: light;
@@ -79,12 +79,12 @@
         --accent: var(--plum);
         --accent-2: var(--teal);
         --tint-header: #e0bfd5;
-        --tint-footer: #bddcd2;
         --deco: var(--magenta);
         --star: rgba(31, 42, 44, 0.35);
 
         --bevel-light: rgba(255, 255, 255, 0.5);
         --bevel-dark: rgba(0, 0, 0, 0.12);
+        --hard-shadow: rgba(31, 42, 44, 0.28);
     }
 }
 
@@ -95,21 +95,17 @@
 }
 
 html {
-    /* 14px on phones, growing gently up to 16px on large screens */
-    font-size: clamp(14px, 13px + 0.25vw, 16px);
+    font-size: 87.5%;
 }
 
 body {
     min-height: 100vh;
-    min-height: 100dvh; /* accounts for mobile browser toolbars */
-    display: flex;
-    flex-direction: column;
+    min-height: 100dvh;
     background-color: var(--bg);
     color: var(--text);
     line-height: 1.6;
 }
 
-/* Fixed layer behind everything: painted once, never repainted on scroll */
 body::before {
     content: "";
     position: fixed;
@@ -127,56 +123,7 @@ a:hover {
     color: var(--accent-2);
 }
 
-header {
-    min-height: 5rem;
-    padding: var(--space-sm);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(var(--tint-header), var(--bg));
-    border-bottom: 2px solid var(--border);
-    box-shadow: 0 2px 0 var(--deco);
-}
-
-header h1 {
-    color: var(--accent);
-    text-align: center;
-    font-size: clamp(1.5rem, 6vw, 2.25rem);
-}
-
-main {
-    flex: 1;
-    width: min(100% - var(--space-lg), var(--page-width));
-    margin-block: var(--space-md);
-    margin-inline: auto;
-    padding: var(--space-md);
-    overflow-wrap: anywhere;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-top: 3px solid var(--accent-2);
-    box-shadow:
-        inset 1px 1px 0 var(--bevel-light),
-        inset -1px -1px 0 var(--bevel-dark);
-}
-
-footer {
-    min-height: 3.5rem;
-    padding: var(--space-sm);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(var(--bg), var(--tint-footer));
-    border-top: 2px solid var(--border);
-}
-
-footer nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-sm) var(--space-md);
-}
-
-footer nav a[aria-current="page"] {
-    color: var(--text);
-    text-decoration: none;
+a:focus-visible {
+    outline: 2px solid var(--deco);
+    outline-offset: 2px;
 }
