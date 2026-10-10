@@ -4,10 +4,13 @@
         <loc>https://blanktuber.dev/</loc>
         <lastmod>2026-10-10</lastmod>
     </url>
-    <!-- Add one <url> per public page as the site grows, e.g.:
     <url>
-        <loc>https://example.com/workbench</loc>
+        <loc>https://blanktuber.dev/workbench/</loc>
         <lastmod>2026-10-10</lastmod>
     </url>
-    -->
+    <url>
+        <loc>https://blanktuber.dev/scratchpad/</loc>
+        <lastmod>2026-10-10</lastmod>
+    </url>
+    <!-- Add one <url> per public page, e.g. /workbench/some-project/ -->
 </urlset>
