@@ -1,0 +1,45 @@
+/* A row of big numbers: the headline facts about a project.
+
+   <dl class="stats">
+       <div><dt>Binary size</dt><dd>2.1 <small>MB</small></dd></div>
+       <div><dt>RAM at idle</dt><dd>14 <small>MB</small></dd></div>
+       <div><dt>Dependencies</dt><dd>3</dd></div>
+   </dl>
+
+   The number is written after its label in the HTML (so it reads naturally
+   in a screen reader) and shown above it. */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: var(--space-md);
+}
+
+.stats > div {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 0.1rem;
+    padding: 0.5rem var(--space-md);
+    background: var(--surface);
+    border: 2px solid var(--border);
+    box-shadow:
+        3px 3px 0 var(--hard-shadow),
+        inset 1px 1px 0 var(--bevel-light);
+}
+
+.stats dt {
+    font-size: 0.85rem;
+    color: color-mix(in srgb, var(--text) 70%, transparent);
+}
+
+.stats dd {
+    font-size: 1.9rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--accent);
+}
+
+.stats dd small {
+    font-size: 0.9rem;
+    font-weight: 600;
+}

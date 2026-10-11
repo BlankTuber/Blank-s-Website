@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Styleguide | Blank's Workshop</title>
+        <meta name="robots" content="noindex" />
+
+        <!-- Appearance -->
+        <meta name="color-scheme" content="dark light" />
+        <meta
+            name="theme-color"
+            content="#123b35"
+            media="(prefers-color-scheme: dark)"
+        />
+        <meta
+            name="theme-color"
+            content="#e0bfd5"
+            media="(prefers-color-scheme: light)"
+        />
+
+        <!-- Icons -->
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" href="/assets/img/logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+        <!-- Styles -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap"
+        />
+        <link rel="stylesheet" href="/assets/css/global.css" />
+        <link rel="stylesheet" href="/assets/css/layout.css" />
+        <link rel="stylesheet" href="/assets/css/components/box.css" />
+        <link rel="stylesheet" href="/assets/css/components/links.css" />
+        <link rel="stylesheet" href="/assets/css/components/prose.css" />
+        <link rel="stylesheet" href="/assets/css/components/code.css" />
+        <link rel="stylesheet" href="/assets/css/components/callout.css" />
+        <link rel="stylesheet" href="/assets/css/components/chip.css" />
+        <link rel="stylesheet" href="/assets/css/components/spec.css" />
+        <link rel="stylesheet" href="/assets/css/components/button.css" />
+        <link rel="stylesheet" href="/assets/css/components/figure.css" />
+        <link rel="stylesheet" href="/assets/css/components/checklist.css" />
+        <link rel="stylesheet" href="/assets/css/components/syntax.css" />
+        <link rel="stylesheet" href="/assets/css/components/fold.css" />
+        <link rel="stylesheet" href="/assets/css/components/modal.css" />
+        <link rel="stylesheet" href="/assets/css/components/gauge.css" />
+        <link rel="stylesheet" href="/assets/css/components/stats.css" />
+        <link rel="stylesheet" href="/assets/css/components/log.css" />
+        <link rel="stylesheet" href="/assets/css/components/toc.css" />
+        <link rel="stylesheet" href="/styleguide/styleguide.css" />
+        <script src="/assets/js/highlight.js" defer></script>
+        <link rel="me" href="https://github.com/BlankTuber" />
+    </head>
+
+    <body>
+        <header>
+            <h1>Styleguide</h1>
+        </header>
+        <div class="layout">
+            <nav aria-label="Main">
+                <div class="box compact">
+                    <p class="tag" aria-hidden="true">Navigate</p>
+                    <ul class="links">
+                        <li><a href="/">Front Door</a></li>
+                        <li><a href="/workbench/">Workbench</a></li>
+                        <li><a href="/scratchpad/">Scratchpad</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <main>
+                <section class="box">
+                    <h2 class="tag">Text</h2>
+                    <div class="prose">
+                        <nav class="toc" aria-labelledby="toc-title">
+                            <h3 class="toc-title" id="toc-title">
+                                On this page
+                            </h3>
+                            <ol>
+                                <li>
+                                    <a href="#sub">A sub-heading</a>
+                                    <ol>
+                                        <li>
+                                            <a href="#small"
+                                                >A smaller heading</a
+                                            >
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li><a href="#notes">Notes</a></li>
+                            </ol>
+                        </nav>
+                        <p class="lede">
+                            A lede paragraph opens a post a little larger.
+                        </p>
+                        <p>
+                            Body text with a <a href="#">link</a>, some
+                            <code>inline code</code> and a key press:
+                            <kbd>Ctrl</kbd> + <kbd>S</kbd>.
+                        </p>
+                        <h3 id="sub">A sub-heading</h3>
+                        <p>
+                            Lists, quotes and rules all live under
+                            <code>.prose</code>.
+                        </p>
+                        <p>
+                            Native text elements:
+                            <abbr title="Random Access Memory">RAM</abbr>,
+                            <dfn>a defined term</dfn>, <mark>marked text</mark>,
+                            <ins>added</ins> and <del>removed</del> text,
+                            H<sub>2</sub>O, x<sup>2</sup>, <q>a short quote</q>,
+                            <cite>A Book</cite>, <var>n</var> items, and
+                            <small>some fine print</small>. A footnote<sup
+                                id="fnref-1"
+                                ><a href="#fn-1">1</a></sup
+                            >
+                            too.
+                        </p>
+                        <ul>
+                            <li>First item</li>
+                            <li>
+                                Second item
+                                <ul>
+                                    <li>Nested</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ol>
+                            <li>Step one</li>
+                            <li>Step two</li>
+                        </ol>
+                        <h4 id="small">A smaller heading</h4>
+                        <blockquote>
+                            <p>Simple means nothing extra.</p>
+                            <footer>Blank</footer>
+                        </blockquote>
+                        <hr />
+                        <div
+                            class="table-wrap"
+                            tabindex="0"
+                            role="region"
+                            aria-label="Pin map"
+                        >
+                            <table>
+                                <caption>
+                                    Pin map
+                                </caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Pin</th>
+                                        <th scope="col">Function</th>
+                                        <th scope="col">Notes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>GPIO4</td>
+                                        <td>Data</td>
+                                        <td>Pulled up to 3.3V</td>
+                                    </tr>
+                                    <tr>
+                                        <td>GPIO5</td>
+                                        <td>Clock</td>
+                                        <td>Keep the wire short</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <section class="footnotes" aria-labelledby="notes">
+                            <h2 id="notes">Notes</h2>
+                            <ol>
+                                <li id="fn-1">
+                                    A footnote.
+                                    <a
+                                        href="#fnref-1"
+                                        aria-label="Back to the text"
+                                        >&#8617;</a
+                                    >
+                                </li>
+                            </ol>
+                        </section>
+                    </div>
+                </section>
+
+                <section class="box">
+                    <h2 class="tag">Callouts</h2>
+                    <div class="prose">
+                        <div class="callout" role="note">
+                            <p class="callout-title">Note</p>
+                            <p>
+                                The default kind. For background a reader might
+                                want.
+                            </p>
+                        </div>
+                        <div class="callout" data-kind="tip" role="note">
+                            <p class="callout-title">Tip</p>
+                            <p>Something that makes life easier.</p>
+                        </div>
+                        <div class="callout" data-kind="warn" role="note">
+                            <p class="callout-title">Careful</p>
+                            <p>
+                                Something that can bite, like
+                                <code>rm -rf</code> or a 5V pin on a 3.3V board.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="box">
+                    <h2 class="tag">Code</h2>
+                    <div class="prose">
+                        <figure class="code">
+                            <figcaption>src/main.rs</figcaption>
+                            <pre
+                                tabindex="0"
+                            ><code class="language-rust">fn main() {
+                                let greeting = "Hello from the workshop, this line is long on purpose so that it has to scroll sideways";
+                                println!("{greeting}");
+                            }</code></pre>
+                        </figure>
+                        <figure class="code">
+                            <figcaption>Terminal</figcaption>
+                            <pre
+                                tabindex="0"
+                            ><code class="language-bash">$ cargo build --release
+                            <samp>   Compiling blank v0.1.0
+                                Finished release in 4.2s</samp></code></pre>
+                        </figure>
+                        <figure class="code">
+                            <figcaption>index.html</figcaption>
+                            <pre
+                                tabindex="0"
+                            ><code class="language-html">&lt;a href="/workbench/" aria-current="page"&gt;Workbench&lt;/a&gt;</code></pre>
+                        </figure>
+                        <figure class="code">
+                            <figcaption>config.toml</figcaption>
+                            <pre tabindex="0"><code class="language-toml"># Pins
+                            [display]
+                            width = 128
+                            name = "OLED"</code></pre>
+                        </figure>
+                    </div>
+                </section>
+
+                <section class="box">
+                    <h2 class="tag">Chips, specs and buttons</h2>
+                    <div class="prose">
+                        <ul class="chips" aria-label="Built with">
+                            <li class="chip">Rust</li>
+                            <li class="chip" data-tone="accent">Discord</li>
+                            <li class="chip" data-tone="accent-2">Embedded</li>
+                        </ul>
+                        <ul class="chips" aria-label="Statuses">
+                            <li class="chip" data-status="planned">Planned</li>
+                            <li class="chip" data-status="wip">In progress</li>
+                            <li class="chip" data-status="working">Working</li>
+                            <li class="chip" data-status="shelved">Shelved</li>
+                        </ul>
+                        <dl class="spec">
+                            <div>
+                                <dt>Language</dt>
+                                <dd>Rust</dd>
+                            </div>
+                            <div>
+                                <dt>Platform</dt>
+                                <dd>Linux, Windows</dd>
+                            </div>
+                            <div>
+                                <dt>Source</dt>
+                                <dd>
+                                    <a href="https://github.com/BlankTuber"
+                                        >GitHub</a
+                                    >
+                                </dd>
+                            </div>
+                        </dl>
+                        <p class="btn-row">
+                            <a class="btn" href="#">Source</a>
+                            <a class="btn" data-variant="ghost" href="#"
+                                >Download</a
+                            >
+                        </p>
+                    </div>
+                </section>
+
+                <section class="box">
+                    <h2 class="tag">Figures and checklists</h2>
+                    <div class="prose">
+                        <div class="shots">
+                            <figure class="shot">
+                                <img
+                                    src="/styleguide/demo.png"
+                                    alt="A plain gradient standing in for a screenshot"
+                                    width="640"
+                                    height="360"
+                                />
+                                <figcaption>Captions go here.</figcaption>
+                            </figure>
+                        </div>
+                        <ul class="checklist">
+                            <li>
+                                <label
+                                    ><input type="checkbox" checked disabled />
+                                    <span>Design the schema</span></label
+                                >
+                            </li>
+                            <li>
+                                <label
+                                    ><input type="checkbox" checked disabled />
+                                    <span>Wrap the crypto library</span></label
+                                >
+                            </li>
+                            <li>
+                                <label
+                                    ><input type="checkbox" disabled />
+                                    <span>Write the UI</span></label
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="box">
+                    <h2 class="tag">Folds</h2>
+                    <div class="prose">
+                        <details class="fold" name="faq" open>
+                            <summary>Why not use a framework?</summary>
+                            <div class="fold-body">
+                                <p>Proportion: use what the job needs.</p>
+                            </div>
+                        </details>
+                        <details class="fold" name="faq">
+                            <summary>Opening this one closes the other</summary>
+                            <div class="fold-body">
+                                <p>
+                                    Same <code>name</code> on each
+                                    <code>details</code> makes an accordion.
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <section class="box">
+                    <h2 class="tag">Stats, gauges and log</h2>
+                    <div class="prose">
+                        <dl class="stats">
+                            <div>
+                                <dt>Binary size</dt>
+                                <dd>2.1 <small>MB</small></dd>
+                            </div>
+                            <div>
+                                <dt>RAM at idle</dt>
+                                <dd>14 <small>MB</small></dd>
+                            </div>
+                            <div>
+                                <dt>Dependencies</dt>
+                                <dd>3</dd>
+                            </div>
+                        </dl>
+                        <div class="gauge">
+                            <label for="g-ram">RAM at idle</label>
+                            <span class="gauge-value">14 MB</span>
+                            <meter
+                                id="g-ram"
+                                min="0"
+                                max="64"
+                                low="32"
+                                high="48"
+                                optimum="0"
+                                value="14"
+                            >
+                                14 MB of 64 MB
+                            </meter>
+                        </div>
+                        <div class="gauge">
+                            <label for="g-ram2">RAM under load</label>
+                            <span class="gauge-value">40 MB</span>
+                            <meter
+                                id="g-ram2"
+                                min="0"
+                                max="64"
+                                low="32"
+                                high="48"
+                                optimum="0"
+                                value="40"
+                            >
+                                40 MB of 64 MB
+                            </meter>
+                        </div>
+                        <div class="gauge">
+                            <label for="g-ram3">RAM at the limit</label>
+                            <span class="gauge-value">60 MB</span>
+                            <meter
+                                id="g-ram3"
+                                min="0"
+                                max="64"
+                                low="32"
+                                high="48"
+                                optimum="0"
+                                value="60"
+                            >
+                                60 MB of 64 MB
+                            </meter>
+                        </div>
+                        <div class="gauge">
+                            <label for="g-done">Rewrite</label>
+                            <span class="gauge-value">60%</span>
+                            <progress id="g-done" max="100" value="60">
+                                60%
+                            </progress>
+                        </div>
+                        <ol class="log">
+                            <li>
+                                <time datetime="2026-10-10">10 Oct 2026</time>
+                                <h3>Hardware hell</h3>
+                                <p>The display works, mostly.</p>
+                            </li>
+                            <li>
+                                <time datetime="2026-10-02">2 Oct 2026</time>
+                                <h3>First boot</h3>
+                                <p>It blinked.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </section>
+
+                <section class="box">
+                    <h2 class="tag">Overlays</h2>
+                    <div class="prose">
+                        <p class="btn-row">
+                            <button
+                                class="btn"
+                                commandfor="demo-dialog"
+                                command="show-modal"
+                            >
+                                Open a dialog
+                            </button>
+                        </p>
+                        <figure class="shot">
+                            <button class="thumb" popovertarget="demo-shot">
+                                <img
+                                    src="/styleguide/demo.png"
+                                    alt="A plain gradient standing in for a screenshot"
+                                    width="640"
+                                    height="360"
+                                />
+                            </button>
+                            <figcaption>
+                                Click the picture to enlarge it.
+                            </figcaption>
+                        </figure>
+                        <figure
+                            class="lightbox"
+                            id="demo-shot"
+                            popover
+                            aria-label="A plain gradient standing in for a screenshot"
+                        >
+                            <img
+                                src="/styleguide/demo.png"
+                                alt="A plain gradient standing in for a screenshot"
+                                width="640"
+                                height="360"
+                            />
+                        </figure>
+                    </div>
+                    <dialog
+                        class="box modal"
+                        id="demo-dialog"
+                        aria-labelledby="demo-dialog-title"
+                        closedby="any"
+                    >
+                        <h2 class="tag" id="demo-dialog-title">Dialog</h2>
+                        <div class="modal-body prose">
+                            <p>
+                                A native dialog. Esc closes it, and so does
+                                clicking outside.
+                            </p>
+                            <p>
+                                It scrolls on its own when the content is long.
+                            </p>
+                        </div>
+                        <p class="btn-row">
+                            <button
+                                class="btn"
+                                commandfor="demo-dialog"
+                                command="close"
+                            >
+                                Close
+                            </button>
+                        </p>
+                    </dialog>
+                </section>
+
+                <section class="box theme-demo">
+                    <h2 class="tag">Re-themed</h2>
+                    <div class="prose">
+                        <p>
+                            Everything above reads <code>--accent</code>,
+                            <code>--accent-2</code> and <code>--deco</code>, so
+                            a page can re-point them and every component
+                            follows.
+                        </p>
+                        <ul class="chips">
+                            <li class="chip" data-tone="accent">Accent</li>
+                            <li class="chip" data-status="wip">In progress</li>
+                        </ul>
+                        <div class="callout" data-kind="tip" role="note">
+                            <p class="callout-title">Tip</p>
+                            <p>Same markup, different mood.</p>
+                        </div>
+                        <p class="btn-row">
+                            <a class="btn" href="#">Button</a>
+                        </p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </body>
+</html>

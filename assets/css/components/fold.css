@@ -1,0 +1,80 @@
+/* A collapsible section, built on the native <details> element. It works
+   without any script, and the browser handles keyboard and screen readers.
+
+   <details class="fold">
+       <summary>Question or title</summary>
+       <div class="fold-body">
+           <p>Hidden until opened.</p>
+       </div>
+   </details>
+
+   Add open to start expanded. Give several folds the same name="" and only one
+   stays open at a time (an accordion):
+   <details class="fold" name="faq">...</details>
+   <details class="fold" name="faq">...</details> */
+
+.fold {
+    background: var(--surface);
+    border: 2px solid var(--border);
+    box-shadow:
+        3px 3px 0 var(--hard-shadow),
+        inset 1px 1px 0 var(--bevel-light);
+}
+
+.fold + .fold {
+    margin-top: 0.75rem;
+}
+
+.fold > summary {
+    display: flex;
+    gap: 0.6rem;
+    align-items: baseline;
+    padding: 0.4rem var(--space-md);
+    font-weight: 700;
+    color: var(--accent);
+    cursor: pointer;
+    list-style: none;
+}
+
+/* Safari */
+.fold > summary::-webkit-details-marker {
+    display: none;
+}
+
+.fold > summary::before {
+    content: "\25B8";
+    flex: none;
+    color: var(--deco);
+    transition: transform 120ms;
+}
+
+.fold[open] > summary::before {
+    transform: rotate(90deg);
+}
+
+.fold > summary:hover {
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.fold > summary:focus-visible {
+    outline: 2px solid var(--deco);
+    outline-offset: -4px;
+}
+
+.fold[open] > summary {
+    border-bottom: 2px dashed var(--border);
+}
+
+.fold-body {
+    padding: 0.6rem var(--space-md) 0.75rem;
+}
+
+.fold-body > * + * {
+    margin-top: 0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fold > summary::before {
+        transition: none;
+    }
+}

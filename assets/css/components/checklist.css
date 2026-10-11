@@ -1,0 +1,55 @@
+/* A read-only checklist, for roadmaps and "still open" lists.
+
+   <ul class="checklist">
+       <li><label><input type="checkbox" checked disabled /> <span>Done thing</span></label></li>
+       <li><label><input type="checkbox" disabled /> <span>Open thing</span></label></li>
+   </ul>
+
+   Real checkboxes, so screen readers announce the state. They are disabled
+   because the page doesn't save anything. */
+
+.checklist {
+    list-style: none;
+}
+
+.checklist li + li {
+    margin-top: 0.35rem;
+}
+
+.checklist label {
+    display: flex;
+    gap: 0.6rem;
+    align-items: baseline;
+}
+
+.checklist input {
+    appearance: none;
+    flex: none;
+    display: grid;
+    place-content: center;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin: 0;
+    transform: translateY(0.2rem);
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: 3px;
+    box-shadow: inset 1px 1px 0 var(--bevel-dark);
+}
+
+.checklist input:checked {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.checklist input:checked::before {
+    content: "\2713";
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bg);
+}
+
+.checklist input:checked + * {
+    opacity: 0.7;
+}

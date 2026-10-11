@@ -1,0 +1,43 @@
+/* A spec plate: the quick facts about a project, like the label on the back
+   of a device.
+
+   <dl class="spec">
+       <div><dt>Language</dt><dd>Rust</dd></div>
+       <div><dt>Platform</dt><dd>Linux, Windows</dd></div>
+       <div><dt>Source</dt><dd><a href="https://github.com/BlankTuber/x">GitHub</a></dd></div>
+   </dl> */
+
+.spec {
+    background: var(--surface);
+    border: 2px solid var(--border);
+    box-shadow:
+        3px 3px 0 var(--hard-shadow),
+        inset 1px 1px 0 var(--bevel-light);
+}
+
+.spec > div {
+    display: grid;
+    grid-template-columns: minmax(6rem, 30%) minmax(0, 1fr);
+    gap: 0.25rem var(--space-md);
+    padding: 0.35rem var(--space-md);
+}
+
+.spec > div + div {
+    border-top: 2px dashed var(--border);
+}
+
+.spec dt {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.spec dd {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 30rem) {
+    .spec > div {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

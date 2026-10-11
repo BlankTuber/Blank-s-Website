@@ -1,0 +1,76 @@
+/* Small labels for tech stack, platform and project status.
+
+   <ul class="chips" aria-label="Built with">
+       <li class="chip">Rust</li>
+       <li class="chip" data-tone="accent">Discord</li>
+       <li class="chip" data-status="working">Working</li>
+   </ul>
+
+   data-tone:   "accent" (filled) or "accent-2" (outlined in the second colour).
+   data-status: "planned", "wip", "working" or "shelved". The dot is
+                decoration, so always keep the word in the chip. */
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+}
+
+.chip {
+    --chip: var(--border);
+
+    display: inline-block;
+    padding: 0 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.6;
+    background: var(--surface);
+    border: 2px solid var(--chip);
+    border-radius: 3px;
+    box-shadow: 2px 2px 0 var(--hard-shadow);
+}
+
+.chip[data-tone="accent"] {
+    --chip: var(--accent);
+
+    background: var(--accent);
+    color: var(--bg);
+}
+
+.chip[data-tone="accent-2"] {
+    --chip: var(--accent-2);
+}
+
+/* Status */
+
+.chip[data-status]::before {
+    content: "";
+    display: inline-block;
+    width: 0.55em;
+    height: 0.55em;
+    margin-right: 0.45em;
+    border-radius: 50%;
+    background: var(--chip);
+}
+
+.chip[data-status="planned"] {
+    border-style: dashed;
+}
+
+.chip[data-status="planned"]::before {
+    background: transparent;
+    border: 2px solid var(--chip);
+}
+
+.chip[data-status="wip"] {
+    --chip: var(--accent-2);
+}
+
+.chip[data-status="working"] {
+    --chip: var(--accent);
+}
+
+.chip[data-status="shelved"] {
+    color: color-mix(in srgb, var(--text) 70%, transparent);
+}

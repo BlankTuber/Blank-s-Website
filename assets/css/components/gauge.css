@@ -1,0 +1,110 @@
+/* Native <progress> and <meter> bars, drawn as a row of lit segments.
+
+   progress = how far a task has got.  meter = a measurement on a known scale.
+
+   <div class="gauge">
+       <label for="g-ram">RAM at idle</label>
+       <span class="gauge-value">14 MB</span>
+       <meter id="g-ram" min="0" max="64" value="14">14 MB of 64 MB</meter>
+   </div>
+
+   <div class="gauge">
+       <label for="g-done">Rewrite</label>
+       <span class="gauge-value">60%</span>
+       <progress id="g-done" max="100" value="60">60%</progress>
+   </div>
+
+   On a meter, the optional low, high and optimum attributes change the
+   colour: good is teal, so-so amber, bad the warning colour. The meter's
+   colours are fixed (not the page accent) so good and bad never look alike.
+   The progress bar uses the page accent.
+   The text inside the tag is what old browsers and some screen readers show. */
+
+.gauge {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.25rem var(--space-md);
+}
+
+.gauge + .gauge {
+    margin-top: 0.75rem;
+}
+
+.gauge > label {
+    font-weight: 700;
+}
+
+.gauge-value {
+    font-size: 0.9rem;
+    color: color-mix(in srgb, var(--text) 70%, transparent);
+}
+
+.gauge > :is(meter, progress) {
+    grid-column: 1 / -1;
+}
+
+meter {
+    --good: var(--teal);
+    --mid: #f2c46d;
+    --bad: var(--warn);
+}
+
+@media (prefers-color-scheme: light) {
+    meter {
+        --mid: #7a4e00;
+    }
+}
+
+meter,
+progress {
+    appearance: none;
+    width: 100%;
+    height: 1.1rem;
+    overflow: hidden;
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: 3px;
+    box-shadow: inset 2px 2px 0 var(--bevel-dark);
+}
+
+/* The lit segments. Each state spells out its own colour, because a custom
+   property would be resolved once on the element and not per state. */
+meter::-webkit-meter-bar,
+progress::-webkit-progress-bar {
+    background: none;
+    border: 0;
+    box-shadow: none;
+}
+
+meter::-webkit-meter-optimum-value {
+    background: repeating-linear-gradient(90deg, var(--good) 0 9px, transparent 9px 12px);
+}
+
+progress::-webkit-progress-value {
+    background: repeating-linear-gradient(90deg, var(--accent) 0 9px, transparent 9px 12px);
+}
+
+meter::-webkit-meter-suboptimum-value {
+    background: repeating-linear-gradient(90deg, var(--mid) 0 9px, transparent 9px 12px);
+}
+
+meter::-webkit-meter-even-less-good-value {
+    background: repeating-linear-gradient(90deg, var(--bad) 0 9px, transparent 9px 12px);
+}
+
+/* Firefox */
+meter::-moz-meter-bar {
+    background: repeating-linear-gradient(90deg, var(--good) 0 9px, transparent 9px 12px);
+}
+
+progress::-moz-progress-bar {
+    background: repeating-linear-gradient(90deg, var(--accent) 0 9px, transparent 9px 12px);
+}
+
+meter:-moz-meter-sub-optimum::-moz-meter-bar {
+    background: repeating-linear-gradient(90deg, var(--mid) 0 9px, transparent 9px 12px);
+}
+
+meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+    background: repeating-linear-gradient(90deg, var(--bad) 0 9px, transparent 9px 12px);
+}

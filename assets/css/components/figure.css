@@ -1,0 +1,62 @@
+/* A screenshot, photo, video or audio clip in a frame, with a caption underneath.
+
+   <figure class="shot">
+       <img src="/assets/img/projects/x/main.png" alt="What the picture shows" width="1280" height="720" />
+       <figcaption>The main window.</figcaption>
+   </figure>
+
+   Video and audio work the same way (the files must live on your own site,
+   because the CSP blocks other hosts):
+       <figure class="shot"><video controls preload="metadata" src="/assets/video/demo.mp4" width="1280" height="720"></video><figcaption>...</figcaption></figure>
+       <figure class="shot"><audio controls src="/assets/audio/boot.mp3"></audio><figcaption>...</figcaption></figure>
+   Put a text description or transcript nearby for anyone who can't watch or listen.
+
+   Always give the image alt text, plus width and height so the page doesn't
+   jump while it loads.
+   Add class "pixel" to keep pixel art and tiny LCD shots crisp when scaled.
+   Add class "tilt" for a slightly crooked, pinned-up look. */
+
+.shot {
+    max-width: 100%;
+    padding: 0.5rem;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    box-shadow:
+        4px 4px 0 var(--hard-shadow),
+        inset 1px 1px 0 var(--bevel-light);
+}
+
+.shot :is(img, video) {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
+    border: 2px solid var(--bg);
+}
+
+.shot audio {
+    display: block;
+    width: 100%;
+}
+
+.shot.pixel :is(img, video) {
+    image-rendering: pixelated;
+}
+
+.shot figcaption {
+    padding: 0.4rem 0.25rem 0.1rem;
+    font-size: 0.9rem;
+    color: color-mix(in srgb, var(--text) 70%, transparent);
+}
+
+.shot.tilt {
+    transform: rotate(-0.8deg);
+}
+
+/* A row of shots that wraps */
+.shots {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: var(--space-md);
+    align-items: start;
+}

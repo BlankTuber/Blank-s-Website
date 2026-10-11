@@ -1,0 +1,18 @@
+/* Only for the styleguide page. Shows how a project page can re-theme every
+   component just by pointing the role tokens somewhere else. */
+
+.theme-demo {
+    --accent: #e8a33d;
+    --accent-2: #4da3e0;
+    --deco: #ffd166;
+    --tint-header: #3a2a10;
+}
+
+@media (prefers-color-scheme: light) {
+    .theme-demo {
+        --accent: #8a5a00;
+        --accent-2: #1d6fa8;
+        --deco: #c77d00;
+        --tint-header: #f0dcae;
+    }
+}

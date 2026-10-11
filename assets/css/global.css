@@ -26,6 +26,7 @@
     --accent-2: var(--plum);
     --tint-header: var(--teal-dark);
     --deco: var(--aquamarine);
+    --warn: var(--magenta);
 
     /* Background art. Pick one by pointing --bg-art at --bg-glow or --bg-stars. */
     --star: rgba(255, 255, 255, 0.55);
@@ -80,6 +81,7 @@
         --accent-2: var(--teal);
         --tint-header: #e0bfd5;
         --deco: var(--magenta);
+        --warn: #9c3d00;
         --star: rgba(31, 42, 44, 0.35);
 
         --bevel-light: rgba(255, 255, 255, 0.5);

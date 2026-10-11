@@ -1,0 +1,122 @@
+/* Syntax colours for code blocks, painted by assets/js/highlight.js.
+
+   <figure class="code">
+       <figcaption>src/main.rs</figcaption>
+       <pre tabindex="0"><code class="language-rust">fn main() {}</code></pre>
+   </figure>
+
+   Load it at the end of the page: <script src="/assets/js/highlight.js" defer></script>
+   Only blocks that name a language (class="language-xxx") are coloured. Without
+   the script, or for a block with no language, the code simply stays plain.
+
+   Languages in the bundle: rust, c, cpp, python, javascript, typescript, json,
+   bash, html (or xml), css, toml (or ini), yaml, go, java, kotlin, swift,
+   csharp, sql, dockerfile, diff, markdown.
+
+   These colours are fixed on purpose, so code looks the same on every page
+   even when a page re-themes --accent. Every pair passes 4.5:1 contrast. */
+
+:root {
+    --syn-comment: #7f9290;
+    --syn-keyword: #e38dcb;
+    --syn-string: #f2c46d;
+    --syn-number: #3df5c0;
+    --syn-title: #8fc7ff;
+    --syn-type: #86e6cd;
+    --syn-meta: #ff72d3;
+    --syn-add: rgba(61, 245, 192, 0.14);
+    --syn-del: rgba(255, 114, 211, 0.14);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --syn-comment: #4f6064;
+        --syn-keyword: #8a2f73;
+        --syn-string: #7a4e00;
+        --syn-number: #00694f;
+        --syn-title: #1a5a9a;
+        --syn-type: #1b6a56;
+        --syn-meta: #a0007a;
+        --syn-add: rgba(0, 105, 79, 0.16);
+        --syn-del: rgba(160, 0, 122, 0.14);
+    }
+}
+
+.hljs-comment,
+.hljs-quote {
+    color: var(--syn-comment);
+    font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-doctag,
+.hljs-section {
+    color: var(--syn-keyword);
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-meta .hljs-string,
+.hljs-link {
+    color: var(--syn-string);
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-symbol,
+.hljs-bullet {
+    color: var(--syn-number);
+}
+
+.hljs-title,
+.hljs-title.function_,
+.hljs-selector-id,
+.hljs-selector-class {
+    color: var(--syn-title);
+}
+
+.hljs-type,
+.hljs-built_in,
+.hljs-title.class_,
+.hljs-attr,
+.hljs-attribute,
+.hljs-property,
+.hljs-name,
+.hljs-tag {
+    color: var(--syn-type);
+}
+
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-template-variable,
+.hljs-variable {
+    color: var(--syn-meta);
+}
+
+/* Inside html/xml the tag brackets stay quiet */
+.hljs-tag {
+    color: var(--syn-comment);
+}
+
+.hljs-tag .hljs-name,
+.hljs-tag .hljs-attr {
+    color: var(--syn-type);
+}
+
+/* Diffs */
+.hljs-addition {
+    background: var(--syn-add);
+}
+
+.hljs-deletion {
+    background: var(--syn-del);
+}
+
+.hljs-emphasis {
+    font-style: italic;
+}
+
+.hljs-strong {
+    font-weight: 700;
+}

@@ -1,0 +1,51 @@
+import hljs from "highlight.js/lib/core";
+import rust from "highlight.js/lib/languages/rust";
+import c from "highlight.js/lib/languages/c";
+import cpp from "highlight.js/lib/languages/cpp";
+import python from "highlight.js/lib/languages/python";
+import javascript from "highlight.js/lib/languages/javascript";
+import typescript from "highlight.js/lib/languages/typescript";
+import json from "highlight.js/lib/languages/json";
+import bash from "highlight.js/lib/languages/bash";
+import xml from "highlight.js/lib/languages/xml";
+import css from "highlight.js/lib/languages/css";
+import ini from "highlight.js/lib/languages/ini";
+import yaml from "highlight.js/lib/languages/yaml";
+import go from "highlight.js/lib/languages/go";
+import java from "highlight.js/lib/languages/java";
+import kotlin from "highlight.js/lib/languages/kotlin";
+import swift from "highlight.js/lib/languages/swift";
+import csharp from "highlight.js/lib/languages/csharp";
+import sql from "highlight.js/lib/languages/sql";
+import dockerfile from "highlight.js/lib/languages/dockerfile";
+import diff from "highlight.js/lib/languages/diff";
+import markdown from "highlight.js/lib/languages/markdown";
+
+hljs.registerLanguage("rust", rust);
+hljs.registerLanguage("c", c);
+hljs.registerLanguage("cpp", cpp);
+hljs.registerLanguage("python", python);
+hljs.registerLanguage("javascript", javascript);
+hljs.registerLanguage("typescript", typescript);
+hljs.registerLanguage("json", json);
+hljs.registerLanguage("bash", bash);
+hljs.registerLanguage("html", xml);
+hljs.registerLanguage("xml", xml);
+hljs.registerLanguage("css", css);
+hljs.registerLanguage("toml", ini);
+hljs.registerLanguage("ini", ini);
+hljs.registerLanguage("yaml", yaml);
+hljs.registerLanguage("go", go);
+hljs.registerLanguage("java", java);
+hljs.registerLanguage("kotlin", kotlin);
+hljs.registerLanguage("swift", swift);
+hljs.registerLanguage("csharp", csharp);
+hljs.registerLanguage("sql", sql);
+hljs.registerLanguage("dockerfile", dockerfile);
+hljs.registerLanguage("diff", diff);
+hljs.registerLanguage("markdown", markdown);
+
+// Only blocks that name a language are touched; plain text stays plain.
+document.querySelectorAll("pre code[class*='language-']").forEach((el) => {
+    hljs.highlightElement(el);
+});

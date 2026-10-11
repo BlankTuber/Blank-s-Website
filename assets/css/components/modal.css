@@ -1,0 +1,113 @@
+/* Overlays built on native HTML: a modal <dialog> and a picture lightbox
+   using the popover attribute. No script needed in either.
+
+   Modal. Reuses the box look, so it needs class="box modal". Wrap the content
+   in .modal-body so long text scrolls without clipping the label.
+
+   <button class="btn" commandfor="license" command="show-modal">Licence</button>
+
+   <dialog class="box modal" id="license" aria-labelledby="license-title" closedby="any">
+       <h2 class="tag" id="license-title">Licence</h2>
+       <div class="modal-body prose">
+           <p>Text.</p>
+       </div>
+       <p class="btn-row">
+           <button class="btn" commandfor="license" command="close">Close</button>
+       </p>
+   </dialog>
+
+   Esc closes it, and closedby="any" also lets a click outside close it
+   (browsers that don't know closedby simply ignore it).
+
+   Lightbox. A thumbnail button opens the big picture, a click outside or Esc
+   closes it.
+
+   <figure class="shot">
+       <button class="thumb" popovertarget="shot-main">
+           <img src="/assets/img/x/main.png" alt="The main window" width="1280" height="720" />
+       </button>
+       <figcaption>Click to enlarge.</figcaption>
+   </figure>
+   <figure class="lightbox" id="shot-main" popover aria-label="The main window">
+       <img src="/assets/img/x/main.png" alt="The main window" width="1280" height="720" />
+   </figure>
+
+   Needs a browser from 2025 or later for commandfor; older ones just don't
+   open the dialog, so keep the important content outside it. */
+
+/* The site-wide margin reset removes the browser's automatic centring of
+   dialogs and popovers, so margin: auto puts it back. The :modal part keeps it
+   stronger than .box > :last-child, which would zero the bottom margin. */
+dialog.modal:modal {
+    margin: auto;
+}
+
+dialog.modal {
+    position: fixed;
+    width: min(100% - 2rem, 40rem);
+    max-height: calc(100dvh - 4rem);
+    overflow: visible;
+    color: var(--text);
+}
+
+.modal-body {
+    max-height: calc(100dvh - 13rem);
+    overflow-y: auto;
+    padding: 0.25rem;
+}
+
+.modal-body:focus-visible {
+    outline: 2px solid var(--deco);
+    outline-offset: 2px;
+}
+
+.modal > .btn-row {
+    margin-top: var(--space-md);
+}
+
+dialog.modal::backdrop,
+.lightbox::backdrop {
+    background: color-mix(in srgb, var(--bg) 75%, transparent);
+}
+
+/* Don't let the page scroll behind an open modal */
+body:has(dialog.modal[open]) {
+    overflow: hidden;
+}
+
+/* Lightbox */
+
+.thumb {
+    display: block;
+    width: 100%;
+    padding: 0;
+    font: inherit;
+    cursor: zoom-in;
+    background: none;
+    border: 0;
+}
+
+.thumb:focus-visible {
+    outline: 2px solid var(--deco);
+    outline-offset: 2px;
+}
+
+.lightbox {
+    margin: auto;
+    max-width: 94vw;
+    max-height: 94dvh;
+    padding: 0.5rem;
+    color: var(--text);
+    background: var(--surface);
+    border: 2px solid var(--border);
+    box-shadow: 4px 4px 0 var(--hard-shadow);
+}
+
+.lightbox img {
+    display: block;
+    max-width: 100%;
+    max-height: calc(94dvh - 2rem);
+    width: auto;
+    height: auto;
+    margin-inline: auto;
+}

@@ -1,0 +1,61 @@
+/* A dated list of changes: a devlog, changelog or project timeline.
+
+   <ol class="log">
+       <li>
+           <time datetime="2026-10-10">10 Oct 2026</time>
+           <h3>Title of the entry</h3>
+           <p>What happened.</p>
+       </li>
+   </ol>
+
+   Newest first reads best. Use an ordered list because the order matters. */
+
+.log {
+    list-style: none;
+    margin-left: 0.6rem;
+}
+
+.log > li {
+    position: relative;
+    padding: 0 0 var(--space-md) 1.5rem;
+    border-left: 2px dashed var(--border);
+}
+
+.log > li:last-child {
+    padding-bottom: 0;
+    border-left-color: transparent;
+}
+
+/* The bolt each entry hangs from */
+.log > li::before {
+    content: "";
+    position: absolute;
+    top: 0.35rem;
+    left: -0.6rem;
+    width: 0.9rem;
+    height: 0.9rem;
+    background: var(--deco);
+    border: 2px solid var(--bg);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--border);
+}
+
+.log time {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.log h3 {
+    font-size: 1.05rem;
+    line-height: 1.4;
+}
+
+.log > li > * + * {
+    margin-top: 0.4rem;
+}
+
+.log :is(p, ul) {
+    max-width: 62ch;
+}

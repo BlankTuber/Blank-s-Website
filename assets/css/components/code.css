@@ -1,0 +1,85 @@
+/* Code: inline snippets, key caps and recessed code blocks.
+
+   Inline:  <code>cargo run</code>   Keys: <kbd>Ctrl</kbd> + <kbd>C</kbd>
+   Output:  <samp>Finished in 0.4s</samp>  (inside a block, <samp> dims terminal output)
+
+   Block (the caption is optional):
+   <figure class="code">
+       <figcaption>src/main.rs</figcaption>
+       <pre tabindex="0"><code>fn main() {}</code></pre>
+   </figure>
+
+   The tabindex lets keyboard users scroll long lines. There is no syntax
+   highlighting on purpose; it would need a script or a build step. */
+
+:root {
+    --mono: ui-monospace, "SFMono-Regular", "Cascadia Code", Menlo, Consolas,
+        "Liberation Mono", monospace;
+}
+
+:not(pre) > code,
+kbd,
+samp {
+    padding: 0.05em 0.4em;
+    font-family: var(--mono);
+    font-size: 0.9em;
+    border-radius: 3px;
+}
+
+:not(pre) > code {
+    background: color-mix(in srgb, var(--accent) 16%, var(--surface));
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+/* A key you could press: flat on top, thick underneath */
+kbd {
+    white-space: nowrap;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-bottom-width: 4px;
+}
+
+/* The block looks cut into the panel rather than stuck on it. */
+.code {
+    background: var(--bg);
+    border: 2px solid var(--border);
+    box-shadow: inset 2px 2px 0 var(--bevel-dark);
+}
+
+.code figcaption {
+    padding: 0.15rem 0.75rem;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+    border-bottom: 2px dashed var(--border);
+}
+
+.code pre {
+    padding: 0.75rem 1rem;
+    overflow-x: auto;
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    white-space: pre;
+    overflow-wrap: normal;
+    tab-size: 4;
+}
+
+.code pre:focus-visible {
+    outline: 2px solid var(--deco);
+    outline-offset: -4px;
+}
+
+/* Program output: the same look inline, dimmed inside a block so commands stand out */
+samp {
+    background: var(--surface);
+    border: 1px dashed var(--border);
+}
+
+pre samp {
+    padding: 0;
+    color: color-mix(in srgb, var(--text) 70%, transparent);
+    background: none;
+    border: 0;
+}

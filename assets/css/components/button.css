@@ -1,0 +1,71 @@
+/* A chunky link button that sinks when you press it.
+
+   <p class="btn-row">
+       <a class="btn" href="https://github.com/BlankTuber/x">Source</a>
+       <a class="btn" data-variant="ghost" href="/releases/x.zip">Download</a>
+   </p>
+
+   Use it for links that go somewhere or download something. For something
+   that does an action on the page, use <button class="btn">. */
+
+.btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem var(--space-md);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    font: inherit;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background: var(--accent);
+    color: var(--bg);
+    border: 2px solid var(--accent);
+    border-radius: 3px;
+    box-shadow:
+        3px 3px 0 var(--hard-shadow),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.22);
+    transition:
+        transform 80ms,
+        box-shadow 80ms;
+}
+
+.btn[data-variant="ghost"] {
+    background: var(--surface);
+    color: var(--accent);
+}
+
+.btn:hover {
+    color: var(--bg);
+    transform: translate(-1px, -1px);
+    box-shadow:
+        4px 4px 0 var(--hard-shadow),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.22);
+}
+
+.btn[data-variant="ghost"]:hover {
+    background: var(--accent);
+}
+
+.btn:active {
+    transform: translate(3px, 3px);
+    box-shadow:
+        0 0 0 var(--hard-shadow),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.22);
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--deco);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn {
+        transition: none;
+    }
+}

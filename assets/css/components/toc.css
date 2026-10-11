@@ -1,0 +1,63 @@
+/* A table of contents for a long post or project page.
+
+   <nav class="toc" aria-labelledby="toc-title">
+       <h2 class="toc-title" id="toc-title">On this page</h2>
+       <ol>
+           <li><a href="#why">Why I built it</a></li>
+           <li>
+               <a href="#how">How it works</a>
+               <ol><li><a href="#how-parser">The parser</a></li></ol>
+           </li>
+       </ol>
+   </nav>
+
+   The headings it points to need matching ids. */
+
+.toc {
+    padding: 0.5rem var(--space-md) 0.75rem;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-left: 6px solid var(--deco);
+    box-shadow:
+        3px 3px 0 var(--hard-shadow),
+        inset 1px 1px 0 var(--bevel-light);
+}
+
+.toc-title {
+    font-size: 0.95rem;
+    color: var(--accent);
+}
+
+.toc ol {
+    padding-left: 1.5rem;
+}
+
+.toc ol ol {
+    margin-top: 0.1rem;
+    padding-left: 1.25rem;
+    list-style-type: lower-alpha;
+}
+
+.toc li::marker {
+    font-weight: 700;
+    color: var(--accent-2);
+}
+
+.toc a {
+    text-decoration: none;
+}
+
+.toc a:hover {
+    text-decoration: underline;
+}
+
+/* Jumping to a heading: leave breathing room and don't whip the page around */
+[id] {
+    scroll-margin-top: 1rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}

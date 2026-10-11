@@ -1,0 +1,49 @@
+/* A sticky note for the things a reader shouldn't miss.
+
+   <div class="callout" role="note">
+       <p class="callout-title">Note</p>
+       <p>Text.</p>
+   </div>
+
+   Pick a kind with data-kind: "note" (default), "tip" or "warn".
+   Add role="alert" only if the content is truly urgent. */
+
+.callout {
+    --kind: var(--accent);
+
+    padding: 0.6rem var(--space-md) 0.7rem;
+    background: color-mix(in srgb, var(--kind) 12%, var(--surface));
+    border: 2px solid var(--kind);
+    box-shadow:
+        3px 3px 0 var(--hard-shadow),
+        inset 1px 1px 0 var(--bevel-light);
+}
+
+.callout[data-kind="tip"] {
+    --kind: var(--accent-2);
+}
+
+.callout[data-kind="warn"] {
+    --kind: var(--warn);
+}
+
+.callout > * + * {
+    margin-top: 0.5rem;
+}
+
+.callout-title {
+    font-weight: 700;
+    color: var(--kind);
+}
+
+.callout-title::before {
+    content: "\25B8\00a0";
+}
+
+.callout[data-kind="tip"] .callout-title::before {
+    content: "\2605\00a0";
+}
+
+.callout[data-kind="warn"] .callout-title::before {
+    content: "!\00a0";
+}
